@@ -53,19 +53,3 @@ data data.reconciliation_final;
 run;
 
 
-/*
-proc means data=reconciliation_results noprint;
-var revenue_variance;
-output out=stats mean=mean_var std=std_var;
-run;
-
-data reconciliation_results;
-if _n_=1 then set stats;
-set reconciliation_results;
-
-z_score = (revenue_variance - mean_var)/std_var;
-
-if abs(z_score)>3 then variance_outlier=1;
-else variance_outlier=0;
-run;
-*/
